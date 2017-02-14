@@ -1,0 +1,42 @@
+/*!
+ * Copyright (c) 2017 z-kit contributors.
+ * MIT LICENSE
+ * https://github.com/z-kit/z-info
+ */
+
+/* Variables */
+:root {
+  --primary-color: #3c91e6;
+  --warning-color: #fed766;
+  --success-color: #76b245;
+  --danger-color: #f03a47;
+  --error-color: #f00;
+}
+
+/* Info box */
+.z-info {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: none;
+  border-left: 0.25rem solid var(--primary-color);
+}
+
+.z-info--success { border-color: var(--success-color); }
+.z-info--warning { border-color: var(--warning-color); }
+.z-info--danger { border-color: var(--danger-color); }
+.z-info--error { border-color: var(--error-color); }
+
+/* Message title */
+.z-info__title {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+/* Optional message contents */
+.z-info__message {
+  margin: 0;
+  margin-top: 0.5rem;
+}
