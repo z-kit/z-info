@@ -1,38 +1,101 @@
-module.exports = {
-  default: (browser) => {
-    browser
-      .url('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=default')
-      .waitForElementPresent('.z-info', 1000)
-      .getCssProperty('.z-info', 'border-color', (result) => {
-        const expected = 'rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(60, 145, 230)';
-        browser.assert.equal(result.value, expected);
-      })
-      .assert.containsText('.z-info__title', 'Title')
-      .end();
-  },
-  info: (browser) => {
-    browser
-      .url('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=info')
-      .waitForElementPresent('.z-info', 1000)
-      .assert.containsText('.z-info__message', 'More info')
-      .end();
-  },
-  colors: (browser) => {
-    browser
-      .url('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=colors')
-      .waitForElementPresent('.z-info', 1000)
-      .getCssProperty('.z-info--success', 'border-color', (result) => {
-        browser.assert.equal(result.value, 'rgb(118, 178, 69)');
-      })
-      .getCssProperty('.z-info--warning', 'border-color', (result) => {
-        browser.assert.equal(result.value, 'rgb(254, 215, 102)');
-      })
-      .getCssProperty('.z-info--danger', 'border-color', (result) => {
-        browser.assert.equal(result.value, 'rgb(240, 58, 71)');
-      })
-      .getCssProperty('.z-info--error', 'border-color', (result) => {
-        browser.assert.equal(result.value, 'rgb(255, 0, 0)');
-      })
-      .end();
-  },
-};
+import { test } from 'ava';
+import Nightmare from 'nightmare';
+
+test('CSS component - default', (t) => {
+  t.plan(1);
+  const msg = 'should render the title text';
+  const expected = 'Title';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=default')
+    .wait('.z-info')
+    .evaluate(() => document.querySelector('.z-info__title').textContent)
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - default', (t) => {
+  t.plan(1);
+  const msg = 'should render the border properly';
+  const expected = 'rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(60, 145, 230)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=default')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - info', (t) => {
+  t.plan(1);
+  const msg = 'should render the optional description message';
+  const expected = 'More info';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=info')
+    .wait('.z-info')
+    .evaluate(() => document.querySelector('.z-info__message').textContent)
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - colors', (t) => {
+  t.plan(1);
+  const msg = 'should render the success modifier';
+  const expected = 'rgb(118, 178, 69)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=colors')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info--success'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - colors', (t) => {
+  t.plan(1);
+  const msg = 'should render the warning modifier';
+  const expected = 'rgb(254, 215, 102)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=colors')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info--warning'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - colors', (t) => {
+  t.plan(1);
+  const msg = 'should render the danger modifier';
+  const expected = 'rgb(240, 58, 71)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=colors')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info--danger'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('CSS component - colors', (t) => {
+  t.plan(1);
+  const msg = 'should render the error modifier';
+  const expected = 'rgb(255, 0, 0)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=CSS%20component&selectedStory=colors')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info--error'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
