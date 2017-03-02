@@ -1,8 +1,6 @@
 # <a name="z-info"></a> z-info
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/z-kit/z-info.svg)](https://greenkeeper.io/)
-
-[![Build]](https://travis-ci.org/z-kit/z-info) [![SemVer]](http://semver.org/) [![License]](LICENSE)
+[![Build]](https://travis-ci.org/z-kit/z-info) [![SemVer]](http://semver.org/) [![Greenkeeper badge](https://badges.greenkeeper.io/z-kit/z-info.svg)](https://greenkeeper.io/) [![License]](LICENSE)
 
 A quick message box component for your web application.
 
