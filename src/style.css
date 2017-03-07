@@ -6,10 +6,11 @@
 
 /* Variables */
 :root {
-  --primary-color: #3c91e6;
-  --warning-color: #fed766;
+  --primary-color: #2386ab;
+  --secondary-color: #26547c;
+  --warning-color: #e0b938;
   --success-color: #76b245;
-  --danger-color: #f03a47;
+  --danger-color: #d8343f;
   --error-color: #f00;
 }
 
@@ -24,6 +25,7 @@
   border-left: 0.25rem solid var(--primary-color);
 }
 
+.z-info--secondary { border-color: var(--secondary-color); }
 .z-info--success { border-color: var(--success-color); }
 .z-info--warning { border-color: var(--warning-color); }
 .z-info--danger { border-color: var(--danger-color); }
