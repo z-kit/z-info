@@ -70,15 +70,16 @@ Just add the HTML structure and CSS classes to reproduce the UI component.
 
 ### Class hierarchy
 
-| Recommended HTML tags              | Parent    | Class              | Description                              | Type     |
-| ---------------------------------- | --------- | ------------------ | ---------------------------------------- | -------- |
-| `div`, `section`                   | `root`    | `.z-info`          | Root container                           | Block    |
-| Any containing `.z-info`           | `root`    | `.z-info--success` | Change the border color to green         | Modifier |
-| Any containing `.z-info`           | `root`    | `.z-info--warning` | Change the border color to yellow        | Modifier |
-| Any containing `.z-info`           | `root`    | `.z-info--error`   | Change the border color to red           | Modifier |
-| Any containing `.z-info`           | `root`    | `.z-info--danger`  | Change the border color to a lighter red | Modifier |
-| `h1`, `h2`, `h3`, `h4`, `h5`, `h6` | `.z-info` | `.z-info__title`   | The title of the info box                | Element  |
-| `p`, `span`                        | `.z-info` | `.z-info__message` | Optional additional information          | Element  |
+| Recommended HTML tags              | Parent    | Class                | Description                                    | Type     |
+| ---------------------------------- | --------- | -------------------- | ---------------------------------------------- | -------- |
+| `div`, `section`                   | `root`    | `.z-info`            | Root container                                 | Block    |
+| Any containing `.z-info`           | `root`    | `.z-info--secondary` | Change the border color to the secondary color | Modifier |
+| Any containing `.z-info`           | `root`    | `.z-info--success`   | Change the border color to green               | Modifier |
+| Any containing `.z-info`           | `root`    | `.z-info--warning`   | Change the border color to yellow              | Modifier |
+| Any containing `.z-info`           | `root`    | `.z-info--error`     | Change the border color to red                 | Modifier |
+| Any containing `.z-info`           | `root`    | `.z-info--danger`    | Change the border color to a lighter red       | Modifier |
+| `h1`, `h2`, `h3`, `h4`, `h5`, `h6` | `.z-info` | `.z-info__title`     | The title of the info box                      | Element  |
+| `p`, `span`                        | `.z-info` | `.z-info__message`   | Optional additional information                | Element  |
 
 #### Full working example:
 
@@ -95,14 +96,15 @@ Render the HTML by using the SFC and passing props.
 
 ### Supported Props
 
-| Prop name | Expected Type | Description                                             |
-| --------- | ------------- | ------------------------------------------------------- |
-| `title`   | `string`      | The title of the message box                            |
-| `message` | `string`      | Optional additional info for the message box            |
-| `success` | `boolean`     | Set to true to change the border color to green         |
-| `warning` | `boolean`     | Set to true to change the border color to yellow        |
-| `error`   | `boolean`     | Set to true to change the border color to red           |
-| `danger`  | `boolean`     | Set to true to change the border color to a lighter red |
+| Prop name   | Expected Type | Description                                                   |
+| ----------- | ------------- | ------------------------------------------------------------- |
+| `title`     | `string`      | The title of the message box                                  |
+| `message`   | `string`      | Optional additional info for the message box                  |
+| `secondary` | `boolean`     | Set to true to change the border color to the secondary color |
+| `success`   | `boolean`     | Set to true to change the border color to green               |
+| `warning`   | `boolean`     | Set to true to change the border color to yellow              |
+| `error`     | `boolean`     | Set to true to change the border color to red                 |
+| `danger`    | `boolean`     | Set to true to change the border color to a lighter red       |
 
 #### Full example (JSX):
 

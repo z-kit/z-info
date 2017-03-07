@@ -42,6 +42,21 @@ test('SFC component - info', (t) => {
 
 test('SFC component - colors', (t) => {
   t.plan(1);
+  const msg = 'should render the secondary modifier';
+  const expected = 'rgb(38, 84, 124)';
+  return Nightmare()
+    .goto('http://localhost:6006/iframe.html?selectedKind=Stateless%20functional%20component&selectedStory=colors')
+    .wait('.z-info')
+    .evaluate(() => {
+      const infoStyle = getComputedStyle(document.querySelector('.z-info--secondary'));
+      return infoStyle.borderColor;
+    })
+    .end()
+    .then(actual => t.deepEqual(expected, actual, msg));
+});
+
+test('SFC component - colors', (t) => {
+  t.plan(1);
   const msg = 'should render the success modifier';
   const expected = 'rgb(118, 178, 69)';
   return Nightmare()

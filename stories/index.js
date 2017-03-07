@@ -21,6 +21,9 @@ storiesOf('CSS component', module)
       <div className="z-info">
         <h1 className="z-info__title">Primary</h1>
       </div>
+      <div className="z-info z-info--secondary">
+        <h1 className="z-info__title">Secondary</h1>
+      </div>
       <div className="z-info z-info--success">
         <h1 className="z-info__title">Success</h1>
       </div>
@@ -42,6 +45,7 @@ storiesOf('Stateless functional component', module)
   .add('colors', () => (
     <div>
       <ZInfo title="Primary" />
+      <ZInfo title="Secondary" secondary />
       <ZInfo title="Success" success />
       <ZInfo title="Warning" warning />
       <ZInfo title="Danger" danger />

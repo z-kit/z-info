@@ -28,6 +28,17 @@ test('Additional message', (t) => {
   return t.deepEqual(actual, expected, msg);
 });
 
+test('Secondary modifier', (t) => {
+  const msg = 'should be supported';
+  const actual = renderJSX(<ZInfo title="Title" secondary />);
+  const expected = JSX(
+    <div className="z-info z-info--secondary">
+      <h1 className="z-info__title">Title</h1>
+    </div>
+  );
+  return t.deepEqual(actual, expected, msg);
+});
+
 test('Success modifier', (t) => {
   const msg = 'should be supported';
   const actual = renderJSX(<ZInfo title="Title" success />);
