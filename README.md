@@ -14,6 +14,7 @@ A quick message box component for your web application.
 - [How to use](#howto)
   - [CSS component](#css)
   - [Stateless Functional Component](#sfc)
+- [Theming](#theming)
 - [License](#license)
 
 ## <a name="install"></a> Install
@@ -111,6 +112,21 @@ Render the HTML by using the SFC and passing props.
 ```jsx
 <ZInfo title="Title" message="More info" />
 ```
+
+## <a name="theming"></a> Theming
+
+Since `1.2.0`, z-info supports theming through CSS Variables.
+
+List of variables used:
+
+| Variable          | Expected type | Description                                    |
+| ----------------- | ------------- | ---------------------------------------------- |
+| --primary-color   | `color`       | The primary border-color for the message box   |
+| --secondary-color | `color`       | The secondary border-color for the message box |
+| --success-color   | `color`       | The border-color for successful message boxes  |
+| --warning-color   | `color`       | The border-color for warning message boxes     |
+| --danger-color    | `color`       | The border-color for danger message boxes      |
+| --error-color     | `color`       | The border-color for error message boxes       |
 
 ## <a name="license"></a> LICENSE
 
