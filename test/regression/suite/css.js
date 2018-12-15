@@ -1,7 +1,7 @@
-import { test } from 'ava';
+import test from 'ava';
 import Nightmare from 'nightmare';
 
-test('CSS component - default', (t) => {
+test('CSS component - title text', (t) => {
   t.plan(1);
   const msg = 'should render the title text';
   const expected = 'Title';
@@ -13,7 +13,7 @@ test('CSS component - default', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - default', (t) => {
+test('CSS component - border', (t) => {
   t.plan(1);
   const msg = 'should render the border properly';
   const expected = 'rgb(0, 0, 0) rgb(0, 0, 0) rgb(0, 0, 0) rgb(35, 134, 171)';
@@ -40,7 +40,7 @@ test('CSS component - info', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - colors', (t) => {
+test('CSS component - secondary', (t) => {
   t.plan(1);
   const msg = 'should render the secondary modifier';
   const expected = 'rgb(38, 84, 124)';
@@ -55,7 +55,7 @@ test('CSS component - colors', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - colors', (t) => {
+test('CSS component - success', (t) => {
   t.plan(1);
   const msg = 'should render the success modifier';
   const expected = 'rgb(118, 178, 69)';
@@ -70,7 +70,7 @@ test('CSS component - colors', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - colors', (t) => {
+test('CSS component - warning', (t) => {
   t.plan(1);
   const msg = 'should render the warning modifier';
   const expected = 'rgb(224, 185, 56)';
@@ -85,7 +85,7 @@ test('CSS component - colors', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - colors', (t) => {
+test('CSS component - danger', (t) => {
   t.plan(1);
   const msg = 'should render the danger modifier';
   const expected = 'rgb(216, 52, 63)';
@@ -100,7 +100,7 @@ test('CSS component - colors', (t) => {
     .then(actual => t.deepEqual(expected, actual, msg));
 });
 
-test('CSS component - colors', (t) => {
+test('CSS component - error', (t) => {
   t.plan(1);
   const msg = 'should render the error modifier';
   const expected = 'rgb(255, 0, 0)';
